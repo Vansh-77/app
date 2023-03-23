@@ -57,6 +57,7 @@ class _HomepageState extends State<homepage> {
         ),
         SizedBox(
           height: 150,
+
           //width: 500,
           child: ListView.separated(
             separatorBuilder: (context, index) {
@@ -169,7 +170,7 @@ class _HomepageState extends State<homepage> {
       ),
       leading: GestureDetector(
           onTap: () {
-            //print("back");
+            print("back");
           },
           child: Container(
               margin: const EdgeInsets.all(12),
