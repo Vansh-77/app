@@ -73,7 +73,7 @@ class _LoginpageState extends State<Loginpage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Row(
                     children: [
                       const Text("Don't have an account? ",
