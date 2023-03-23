@@ -76,11 +76,14 @@ class _LoginpageState extends State<Loginpage> {
                   padding: const EdgeInsets.only(left: 20, top: 20),
                   child: Row(
                     children: [
-                      const Text("Don't have an account? "),
+                      const Text("Don't have an account? ",
+                          style: TextStyle(fontSize: 15)),
                       GestureDetector(
                           onTap: () {},
-                          child: const Text("create one",
-                              style: TextStyle(color: Colors.blue)))
+                          child: const Text(
+                            "create one",
+                            style: TextStyle(color: Colors.blue, fontSize: 16),
+                          ))
                     ],
                   ),
                 ),
