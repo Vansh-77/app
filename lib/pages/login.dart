@@ -9,22 +9,11 @@ class Loginpage extends StatefulWidget {
 
 class _LoginpageState extends State<Loginpage> {
   bool changestyle = false;
+  bool signup = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        /*  appBar: AppBar(
-          toolbarHeight: 70,
-          backgroundColor: Colors.white,
-          shadowColor: Colors.blue.withOpacity(0.6),
-          title: const Center(
-            child: Text("Welcome To My App",
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 26)),
-          ),
-        ),*/
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -96,7 +85,7 @@ class _LoginpageState extends State<Loginpage> {
                       changestyle = true;
                     });
                     await Future.delayed(
-                        const Duration(seconds: 2, microseconds: 50));
+                        const Duration(seconds: 1, milliseconds: 5));
                     // ignore: use_build_context_synchronously
                     await Navigator.pushNamed(context, "/homepage");
                     setState(() {
