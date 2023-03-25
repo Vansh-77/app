@@ -8,6 +8,7 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
+  bool changestyle = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +61,7 @@ class _LoginpageState extends State<Loginpage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                   child: TextFormField(
+                    obscureText: true,
                     decoration: InputDecoration(
                       hintText: "Enter Your Password",
                       labelText: "Password",
@@ -88,18 +90,41 @@ class _LoginpageState extends State<Loginpage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Container(
-                  alignment: Alignment.center,
-                  height: 50,
-                  width: 120,
-                  decoration: BoxDecoration(
+                GestureDetector(
+                  onTap: () async {
+                    setState(() {
+                      changestyle = true;
+                    });
+                    await Future.delayed(
+                        const Duration(seconds: 2, microseconds: 50));
+                    // ignore: use_build_context_synchronously
+                    await Navigator.pushNamed(context, "/homepage");
+                    setState(() {
+                      changestyle = false;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: changestyle ? 50 : 120,
+                    decoration: BoxDecoration(
                       color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: const Text("Login",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600)),
+                      borderRadius: changestyle
+                          ? BorderRadius.circular(50)
+                          : BorderRadius.circular(12),
+                    ),
+                    child: changestyle
+                        ? const Icon(
+                            Icons.done,
+                            color: Colors.white,
+                          )
+                        : const Text("Login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600)),
+                  ),
                 )
               ],
             ))

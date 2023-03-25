@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'poppins'),
       routes: {
         "/": (context) => const Loginpage(),
+        "/login": (context) => const Loginpage(),
         "/homepage": (context) => const homepage()
       },
     );

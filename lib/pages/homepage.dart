@@ -170,7 +170,7 @@ class _HomepageState extends State<homepage> {
       ),
       leading: GestureDetector(
           onTap: () {
-            // print("back");
+            Navigator.pop(context);
           },
           child: Container(
               margin: const EdgeInsets.all(12),
