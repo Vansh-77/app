@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/breakfastapp.dart';
 import 'package:my_app/pages/homepage.dart';
 import 'package:my_app/pages/login.dart';
 
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'poppins'),
       routes: {
-        "/": (context) => const Loginpage(),
+        "/": (context) => const Homepage(),
         "/login": (context) => const Loginpage(),
-        "/homepage": (context) => const homepage()
+        "/homepage": (context) => const breakfastapp()
       },
     );
   }
