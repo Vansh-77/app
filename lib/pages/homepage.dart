@@ -9,6 +9,7 @@ class Homepage extends StatelessWidget {
         appBar: AppBar(
           title: const Center(
             child: Text("All Apps",
+                textScaleFactor: 1.5,
                 style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold)),
           ),
@@ -31,7 +32,7 @@ class Homepage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.red,
                       borderRadius: BorderRadius.circular(50)),
                   height: 100,
                   child: Center(
