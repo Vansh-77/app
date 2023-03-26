@@ -3,14 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/models/categorymodel.dart';
 
 // ignore: camel_case_types
-class homepage extends StatefulWidget {
-  const homepage({super.key});
+class breakfastapp extends StatefulWidget {
+  const breakfastapp({super.key});
 
   @override
-  State<homepage> createState() => _HomepageState();
+  State<breakfastapp> createState() => _BreakfastappState();
 }
 
-class _HomepageState extends State<homepage> {
+class _BreakfastappState extends State<breakfastapp> {
   List<Categorymodels> categories = [];
 
   void _getcategories() {
