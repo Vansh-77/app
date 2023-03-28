@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  var list = ["breakfastapp"];
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,20 +34,35 @@ class Homepage extends StatelessWidget {
               },
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: 20,
+              itemCount: list.length,
               padding: const EdgeInsets.all(10),
               itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(50)),
-                  height: 100,
-                  child: Center(
-                      child: Text((index + 1).toString(),
-                          textScaleFactor: 1.5,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ))),
+                return GestureDetector(
+                  onTap: () async {
+                    setState(() {
+                      loading = true;
+                    });
+                    await Future.delayed(const Duration(seconds: 10));
+                    // ignore: use_build_context_synchronously
+                    Navigator.pushNamed(context, "/breakfastapp");
+                    setState(() {
+                      loading = false;
+                    });
+                  },
+                  child: loading
+                      ? const Center(child: CircularProgressIndicator())
+                      : Container(
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(50)),
+                          height: 100,
+                          child: Center(
+                              child: Text("${index + 1}.  ${list[index]}",
+                                  textScaleFactor: 1.5,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
                 );
               },
             ),

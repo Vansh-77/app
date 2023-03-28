@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/breakfastapp.dart';
+import 'package:my_app/pages/catelogapp.dart';
 import 'package:my_app/pages/homepage.dart';
 import 'package:my_app/pages/login.dart';
 
@@ -14,12 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.white,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'poppins'),
       routes: {
-        "/": (context) => const Homepage(),
+        "/": (context) => const CatelogApp(),
         "/login": (context) => const Loginpage(),
-        "/breakfastapp": (context) => const breakfastapp()
+        "/breakfastapp": (context) => const breakfastapp(),
+        "/catelogapp": (context) => const CatelogApp(),
+        "/homepage": (context) => const Homepage()
       },
     );
   }
