@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/models/catelogmodel.dart';
+import 'package:my_app/widgits/itemwidgit.dart';
 
 class CatelogApp extends StatefulWidget {
   const CatelogApp({super.key});
@@ -29,53 +30,62 @@ class _CatelogAppState extends State<CatelogApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Catelog App",
-              style: TextStyle(
-                fontSize: 46,
-                fontWeight: FontWeight.w500,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 150,
+                decoration: const BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        bottomRight: Radius.circular(25))),
               ),
-            ),
-            const Text("Trending Products",
+              Padding(
+                padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
+                child: Container(
+                    height: 120,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 0, 25, 45),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Catelog App",
+                        style: TextStyle(
+                            fontSize: 48,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
+                    )),
+              )
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 18.0, left: 10),
+            child: Text("Trending Products",
                 style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 25,
                     fontWeight: FontWeight.w100,
                     color: Colors.grey)),
-            Expanded(
-              child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: (Catelogmodel.items != null)
-                      ? ListView.separated(
-                          separatorBuilder: (context, index) {
-                            return const SizedBox(
-                              height: 20,
-                            );
-                          },
-                          itemCount: Catelogmodel.items.length,
-                          itemBuilder: ((context, index) {
-                            return Container(
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                children: [
-                                  Card(
-                                      child: Image.network(
-                                          Catelogmodel.items[index].image))
-                                ],
-                              ),
-                            );
-                          }))
-                      : const Center(child: CircularProgressIndicator())),
-            )
-          ],
-        ),
+          ),
+          Expanded(
+            child: Padding(
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                child: Catelogmodel.items.isNotEmpty
+                    ? ListView.builder(
+                        itemCount: Catelogmodel.items.length,
+                        itemBuilder: ((context, index) {
+                          return ItemWidgit(
+                            item: Catelogmodel.items[index],
+                          );
+                        }))
+                    : const Center(child: CircularProgressIndicator())),
+          )
+        ],
       ),
     );
   }
