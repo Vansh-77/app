@@ -19,6 +19,7 @@ class _CatelogAppState extends State<CatelogApp> {
   }
 
   loadData() async {
+    // await Future.delayed(Duration(seconds: 5));
     var data = await rootBundle.loadString("assets/files/catelog.json");
     var decodedData = jsonDecode(data);
     var productData = decodedData["products"];
@@ -32,7 +33,6 @@ class _CatelogAppState extends State<CatelogApp> {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Stack(
             children: [
