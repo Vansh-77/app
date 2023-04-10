@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/catelogmodel.dart';
 
 class ItemWidgit extends StatelessWidget {
@@ -10,9 +9,9 @@ class ItemWidgit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.only(bottom: 24.0, left: 10, right: 10),
       child: Container(
-        height: 130,
+        height: 150,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
@@ -22,21 +21,24 @@ class ItemWidgit extends StatelessWidget {
             ),
             boxShadow: const [
               BoxShadow(
-                color: Colors.black,
+                color: Colors.grey,
                 offset: Offset.zero,
                 blurRadius: 0.5,
               )
             ]),
         child: Row(children: [
-          SizedBox(
-            width: 120,
-            child: Image.network(
-              item.image,
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: SizedBox(
+              width: 120,
+              child: Image.network(
+                item.image,
+              ),
             ),
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, left: 10),
+              padding: const EdgeInsets.only(top: 12.0, left: 10, right: 2),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -44,18 +46,17 @@ class ItemWidgit extends StatelessWidget {
                     Text(
                       item.name,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 24,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
                       item.desc,
-                      style: const TextStyle(
-                        color: Colors.blueGrey,
-                      ),
+                      style:
+                          const TextStyle(color: Colors.blueGrey, fontSize: 15),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 0, right: 2),
+                      padding: const EdgeInsets.only(right: 8),
                       child: ButtonBar(
                         alignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -63,14 +64,15 @@ class ItemWidgit extends StatelessWidget {
                             "\$${item.price}",
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: 15,
+                              fontSize: 20,
                             ),
                           ),
                           Container(
+                              width: 60,
                               padding: EdgeInsets.zero,
                               decoration: BoxDecoration(
-                                color: Colors.deepPurple,
-                                borderRadius: BorderRadius.circular(12),
+                                color: const Color.fromARGB(255, 0, 19, 52),
+                                borderRadius: BorderRadius.circular(50),
                                 boxShadow: const [
                                   BoxShadow(
                                     color: Colors.black,
@@ -79,12 +81,15 @@ class ItemWidgit extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: const Padding(
-                                padding: EdgeInsets.all(5.0),
-                                child: Text(" Buy ",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
+                              child: const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(5.0),
+                                  child: Text(" Buy ",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16)),
+                                ),
                               ))
                         ],
                       ),
