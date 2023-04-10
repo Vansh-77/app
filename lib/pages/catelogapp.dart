@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/models/catelogmodel.dart';
+import 'package:my_app/pages/detailpage.dart';
 import 'package:my_app/widgits/itemwidgit.dart';
 
 class CatelogApp extends StatefulWidget {
@@ -65,7 +66,7 @@ class _CatelogAppState extends State<CatelogApp> {
             ],
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 18.0, left: 10),
+            padding: EdgeInsets.only(top: 20.0, left: 10, bottom: 10),
             child: Text("Trending Products",
                 style: TextStyle(
                     fontSize: 25,
@@ -79,8 +80,17 @@ class _CatelogAppState extends State<CatelogApp> {
                     ? ListView.builder(
                         itemCount: Catelogmodel.items.length,
                         itemBuilder: ((context, index) {
-                          return ItemWidgit(
-                            item: Catelogmodel.items[index],
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Detail(
+                                          item: Catelogmodel.items[index])));
+                            },
+                            child: ItemWidgit(
+                              item: Catelogmodel.items[index],
+                            ),
                           );
                         }))
                     : const Center(child: CircularProgressIndicator())),
