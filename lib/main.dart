@@ -3,6 +3,7 @@ import 'package:my_app/pages/breakfastapp.dart';
 import 'package:my_app/pages/catelogapp.dart';
 import 'package:my_app/pages/homepage.dart';
 import 'package:my_app/pages/login.dart';
+//import 'package:my_app/pages/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'poppins'),
       routes: {
-        "/": (context) => const CatelogApp(),
-        "/login": (context) => const Loginpage(),
+         "/": (context) => const CatelogApp(),
+        "/loginpage": (context) => const Loginpage(),
         "/breakfastapp": (context) => const breakfastapp(),
         "/catelogapp": (context) => const CatelogApp(),
         "/homepage": (context) => const Homepage()
