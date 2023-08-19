@@ -38,7 +38,7 @@ class _CatelogAppState extends State<CatelogApp> {
           Stack(
             children: [
               Container(
-                height: 150,
+                height: 100,
                 decoration: const BoxDecoration(
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.only(
@@ -46,7 +46,7 @@ class _CatelogAppState extends State<CatelogApp> {
                         bottomRight: Radius.circular(25))),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
+                padding: const EdgeInsets.only(top: 35, left: 20, right: 20),
                 child: Container(
                     height: 120,
                     decoration: BoxDecoration(

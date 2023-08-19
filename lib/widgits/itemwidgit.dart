@@ -30,7 +30,7 @@ class ItemWidgit extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: SizedBox(
-              width: 120,
+              width: 100,
               child: Image.network(
                 item.image,
               ),
@@ -46,7 +46,7 @@ class ItemWidgit extends StatelessWidget {
                     Text(
                       item.name,
                       style: const TextStyle(
-                        fontSize: 24,
+                        fontSize: 22,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
